@@ -1,0 +1,2 @@
+DATALOADER:0 TEST RESULTS                                                                                                                                         │················
+{'test_acc': 0.7906799912452698, 'test_loss': 2.5598504543304443} 

@@ -48,6 +48,7 @@ class PnlpMixer(nn.Module):
     ):
         super(PnlpMixer, self).__init__(**kwargs)
         self.bottleneck = nn.Linear((2 * bottleneck_cfg.window_size + 1) * bottleneck_cfg.feature_size, bottleneck_cfg.hidden_dim)
+        print(mixer_cfg)
         self.mixer = Mixer(**mixer_cfg)
 
     def forward(self, inputs: torch.Tensor) -> torch.Tensor: 

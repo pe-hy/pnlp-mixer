@@ -1,0 +1,9 @@
+https://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz
+
+Structure in project root:
+
+data/imdb/test
+data/imdb/train
+imdb.vocab
+imdbEr.txt
+README

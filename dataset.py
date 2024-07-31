@@ -43,13 +43,13 @@ class PnlpMixerDataModule(pl.LightningDataModule):
             self.test_set = dataset_cls(root, 'test', self.train_cfg.max_seq_len, self.tokenizer, self.projecion, self.label_map)
     
     def train_dataloader(self) -> DataLoader:
-        return DataLoader(self.train_set, self.train_cfg.train_batch_size, shuffle=True, num_workers=self.train_cfg.num_workers, persistent_workers=True)#, pin_memory=True)
+        return DataLoader(self.train_set, self.train_cfg.train_batch_size, shuffle=True, num_workers=self.train_cfg.num_workers, persistent_workers=False)#, pin_memory=True)
 
     def val_dataloader(self) -> DataLoader:
-        return DataLoader(self.eval_set, self.train_cfg.test_batch_size, shuffle=False, num_workers=self.train_cfg.num_workers, persistent_workers=True)#, pin_memory=True)
+        return DataLoader(self.eval_set, self.train_cfg.test_batch_size, shuffle=False, num_workers=self.train_cfg.num_workers, persistent_workers=False)#, pin_memory=True)
     
     def test_dataloader(self) -> DataLoader:
-        return DataLoader(self.test_set, self.train_cfg.test_batch_size, shuffle=False, num_workers=self.train_cfg.num_workers, persistent_workers=True)#, pin_memory=True)
+        return DataLoader(self.test_set, self.train_cfg.test_batch_size, shuffle=False, num_workers=self.train_cfg.num_workers, persistent_workers=False)#, pin_memory=True)
 
 class PnlpMixerDataset(Dataset): 
     def __init__(self, max_seq_len: int, tokenizer: Tokenizer, projection: Projection, label_map: Dict[str, int], **kwargs):

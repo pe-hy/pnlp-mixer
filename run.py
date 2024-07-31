@@ -180,7 +180,7 @@ if __name__ == '__main__':
         checkpoint_callback=True, 
         gpus=-1,
         log_every_n_steps=train_cfg.log_interval_steps,
-        logger=pl.loggers.TensorBoardLogger(train_cfg.tensorboard_path, args.name),
+        logger=pl.loggers.WandbLogger(project="pnlp-mixer", name=args.name, log_model=True, save_dir=train_cfg.tensorboard_path),
         max_epochs=train_cfg.epochs, 
     )
     if args.mode == 'train':

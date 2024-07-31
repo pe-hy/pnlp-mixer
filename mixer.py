@@ -18,12 +18,12 @@ class MixerLayer(nn.Module):
         super(MixerLayer, self).__init__(**kwargs)
         self.hidden_dim = hidden_dim
         self.layer_norm_1 = nn.LayerNorm(hidden_dim)
-        self.mlp_1 = FFFTrainFixed(max_seq_len, max_seq_len, 6)
-        self.layer_norm_2 = nn.LayerNorm(hidden_dim)
-        self.mlp_2 = FFFTrainFixed(hidden_dim, hidden_dim, 6)
-        # self.mlp_1 = MlpLayer(max_seq_len, seq_hidden_dim)
+        # self.mlp_1 = FFFTrainFixed(max_seq_len, max_seq_len, 10)
         # self.layer_norm_2 = nn.LayerNorm(hidden_dim)
-        # self.mlp_2 = MlpLayer(hidden_dim, channel_hidden_dim)
+        # self.mlp_2 = FFFTrainFixed(hidden_dim, hidden_dim, 10)
+        self.mlp_1 = MlpLayer(max_seq_len, seq_hidden_dim)
+        self.layer_norm_2 = nn.LayerNorm(hidden_dim)
+        self.mlp_2 = MlpLayer(hidden_dim, channel_hidden_dim)
 
     def forward(self, inputs: torch.Tensor) -> torch.Tensor: 
         residual = inputs

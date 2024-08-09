@@ -2,3 +2,6 @@ data
 *.pyc
 *.ckpt
 data.zip
+to_cpp/build
+to_cpp/FFFTorch.egg-info
+batch.pkl

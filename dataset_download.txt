@@ -4,6 +4,8 @@ Structure in project root:
 
 data/imdb/test
 data/imdb/train
+
+These files are in data/imdb/:
 imdb.vocab
 imdbEr.txt
 README

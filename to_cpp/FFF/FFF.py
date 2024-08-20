@@ -22,16 +22,16 @@ class FFFInference(nn.Module):
 		self.n_nodes = 2 ** (self.depth + 1) - 1
 
 	def forward(self, x):
-		print("INFERENCE")
-		print(x.shape)
+		# print("INFERENCE")
+		# print(x.shape)
 		x = x.reshape(-1, self.input_width)
 		batch_size = x.shape[0]
 
 		OUT = torch.zeros(batch_size, self.output_width)
 
 		fff_l1(x, self.W1, self.W2, OUT, batch_size, self.input_width, self.output_width, 4)
-		print("OUT")
-		print(OUT.shape)
+		# print("OUT")
+		# print(OUT.shape)
 	
 		return OUT
 

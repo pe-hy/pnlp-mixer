@@ -91,11 +91,11 @@ class FFFTrainFixed(nn.Module):
 
     def forward(self, oldx: torch.Tensor) -> torch.Tensor:
         depth = self.depth
-        print("TRAIN")
-        print(oldx.shape)
+        # print("TRAIN")
+        # print(oldx.shape)
         x = oldx.reshape(-1, self.input_width)
-        print("AFTER RESHAPE")
-        print(x.shape)
+        # print("AFTER RESHAPE")
+        # print(x.shape)
         if self.bias:
             biastensor = torch.ones(x.shape[0], 1)
             x = torch.cat((x, biastensor), dim=1)
@@ -158,6 +158,6 @@ class FFFTrainFixed(nn.Module):
         new_logits = self.linear_out(
             activations.flatten(1, 2)
         )  # (batch_size, output_width)
-        print("NEW_LOGITS")
-        print(new_logits.shape)
+        # print("NEW_LOGITS")
+        # print(new_logits.shape)
         return new_logits
